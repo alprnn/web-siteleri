@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kavacık Asia Hotel | Rezervasyon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold: #c5a059; --dark: #121212; --white: #ffffff; --gray: #f4f4f4; --wa-green: #25D366; }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: var(--dark); }
+
+        header {
+            background: rgba(18, 18, 18, 0.95);
+            color: white;
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.3rem; text-transform: uppercase; }
+        nav a { 
+    color: white; 
+    text-decoration: none; 
+    margin-left: 15px; /* Boşluğu 20'den 15'e düşürdük */
+    font-size: 0.8rem; /* Yazıyı çok az küçülttük */
+} 
+
+        .hero {
+            height: 85vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('fsm2.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 10%;
+        }
+
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--gold); margin-bottom: 20px; text-transform: uppercase; }
+
+        .section { padding: 80px 10%; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; text-align: center; margin-bottom: 50px; color: #1e3a5f; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; }
+        .card img { width: 100%; height: 150px; object-fit: cover; }
+        .card-body { padding: 25px; flex-grow: 1; }
+        .card-body h3 { font-family: 'Playfair Display', serif; margin-bottom: 15px; color: #1e3a5f; }
+        .card-body ul { list-style: none; font-size: 0.85rem; margin-bottom: 20px; }
+        .card-body ul li { margin-bottom: 5px; padding-left: 20px; position: relative; }
+        .card-body ul li::before { content: '✔'; position: absolute; left: 0; color: var(--gold); }
+        /* Galeri Bölümü - Fotoğrafları Küçültme Ayarı */
+.gallery-grid { 
+    display: grid; 
+    /* 250px olan değeri 180px'e düşürerek yan yana daha çok resim sığdırıyoruz */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+    gap: 10px; /* Resimlerin arasındaki boşluğu biraz daralttık */
+    margin-top: 30px; 
+}
+
+.gallery-item img { 
+    width: 100%; 
+    height: 180px; /* Yüksekliği 250px'den 180px'e çektik */
+    object-fit: cover; 
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+        /* BUTONLAR */
+        .btn-rez { 
+            display: block; 
+            background: var(--wa-green); 
+            color: white; 
+            text-align: center; 
+            padding: 12px; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            font-weight: 600; 
+            transition: 0.3s;
+        }
+        .btn-rez:hover { opacity: 0.9; transform: scale(1.02); }
+        .phone-link {
+    color: inherit; /* Yazı rengini mevcut renkle aynı yapar */
+    text-decoration: none; /* Alt çizgiyi kaldırır */
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.phone-link:hover {
+    color: var(--gold); /* Üzerine gelince otel rengine (gold) döner */
+}
+
+        .contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; }
+        .map-wrapper { width: 100%; height: 400px; border-radius: 15px; overflow: hidden; border: 1px solid #ddd; }
+/* İletişim bölümünün altına ekstra boşluk ekleyerek sayfanın daha rahat kaymasını sağlar */
+#konum {
+    padding-bottom: 150px; 
+}
+        .footer { background: #111; color: #666; text-align: center; padding: 30px; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Kavacık Asia Hotel</div>
+    <nav>
+       <nav>
+    <a href="#hakkimizda">Hakkımızda</a>
+    <a href="#odalar">Odalar</a>
+    <a href="#galeri">Konum & İletişim</a>
+    <a href="#konum"> Restoran &Dış Cephe</a>
+</nav>
+
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>KAVACIK'IN KALBİNDE SAKİN BİR KONAKLAMA</h1>
+</section>
+
+<section id="odalar" class="section">
+    <h2 class="section-title">Konforlu Odalarımız</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="standart oda.jpeg" alt="Standart Oda">
+            <div class="card-body">
+                <h3>Standart Oda</h3>
+                <ul>
+                    <li>Buzdolabı & Smart TV</li>
+                    <li>Banyo & Tuvalet</li>
+                    <li>Ücretsiz WiFi</li>
+                    <li>Kıyafet Dolabı</li>
+                </ul>
+                <a href="https://wa.me/905527552090?text=Merhaba, Standart Oda için rezervasyon yaptırmak istiyorum." class="btn-rez">WhatsApp ile Rezervasyon</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="aile odası.jpeg" alt="Aile Odası">
+            <div class="card-body">
+                <h3>Aile Odası</h3>
+                <ul>
+                    <li>Buzdolabı & Smart TV</li>
+                    <li>Banyo & Tuvalet</li>
+                    <li>Ücretsiz WiFi</li>
+                    <li>Kıyafet Dolabı</li>
+                </ul>
+                <a href="https://wa.me/905527552090?text=Merhaba, Aile Odası için rezervasyon yaptırmak istiyorum." class="btn-rez">WhatsApp ile Rezervasyon</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="twin oda.jpeg" alt="Twin Oda">
+            <div class="card-body">
+                <h3>Twin Oda</h3>
+                <ul>
+                    <li>Buzdolabı & Smart TV</li>
+                    <li>Banyo & Tuvalet</li>
+                    <li>Ücretsiz WiFi</li>
+                    <li>Kıyafet Dolabı</li>
+                </ul>
+                <a href="https://wa.me/905527552090?text=Merhaba, Twin Oda için rezervasyon yaptırmak istiyorum." class="btn-rez">WhatsApp ile Rezervasyon</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="konum" class="section">
+    <h2 class="section-title"> Restoran & Dış Cephe </h2>
+    <section id="hakkimizda" class="about-section">
+    <div class="container">
+        <h2>Hakkımızda</h2>
+        <div class="about-content">
+            <p>İstanbul’un Anadolu Yakası’nda, merkezi konumu ve konforlu yapısıyla öne çıkan <strong>Kavacık Asia Hotel</strong>, hem iş hem de turistik konaklamalar için ideal bir seçenektir. Fatih Sultan Mehmet Köprüsü’ne yakın konumuyla şehrin iki yakasına kolay ulaşım imkânı sunar.</p>
+            <p>Modern ve şık tasarıma sahip odalarımız; klima, ücretsiz Wi-Fi, minibar ve LCD televizyon gibi olanaklarla donatılmıştır. Misafirlerimizin konforu ön planda tutularak hazırlanan odalarımızda huzurlu ve keyifli bir konaklama deneyimi sunulmaktadır.</p>
+            <p>24 saat resepsiyon hizmeti, günlük temizlik, oda servisi ve kahvaltı seçenekleriyle misafirlerimize eksiksiz bir konaklama deneyimi sağlıyoruz. Ayrıca otelimizde kafe ve restoran alanları da bulunmaktadır.</p>
+            <p>Kavacık Asia Hotel, Boğaziçi’ne ve İstanbul’un önemli noktalarına yakınlığı sayesinde hem şehir keşfi hem de iş seyahatleri için avantajlı bir konum sunar.</p>
+        </div>
+    </div>
+</section>
+<section id="galeri" class="gallery-section">
+    <div class="container">
+        <h2>Restoran & Dış Cephe</h2>
+        <div class="gallery-grid">
+            <!-- Dış Cephe Fotoğrafları -->
+            <div class="gallery-item"><img src="kafe5.jpeg" alt="Kavacık Asia Hotel Gece Görünümü"></div>
+            <div class="gallery-item"><img src="kafe6.jpeg" alt="Otel Giriş"></div>
+            <div class="gallery-item"><img src="kafe1.jpeg" alt="Kavacık Asia Hotel Dış Cephe"></div>
+            
+            <!-- Restoran & Kafe Fotoğrafları -->
+            <div class="gallery-item"><img src="kafe3.jpeg" alt="Rio Coffee & Food İç Mekan"></div>
+            <div class="gallery-item"><img src="kafe4.jpeg" alt="Restoran Oturma Alanı"></div>
+            <div class="gallery-item"><img src="kafe7.jpeg" alt="Restoran Genel Bakış"></div>
+            <div class="gallery-item"><img src="kafe2.jpeg" alt="Restoran Teras"></div>
+        </div>
+    </div>
+</section>
+    <h2 class="section-title">Konum & İletişim</h2>
+
+
+    <div class="contact-container">
+       <div class="contact-info">
+    <p><strong>Adres:</strong> Kavacık, Ruhi Esmer Sokağı No:7/2, Beykoz/İstanbul</p>
+    
+    <!-- Sabit Telefon -->
+    <p><strong>Sabit:</strong> 
+        <a href="tel:+902166932090" class="phone-link">0216 693 20 90</a>
+    </p>
+    
+    <!-- GSM / WhatsApp Hattı -->
+    <p><strong>GSM:</strong> 
+        <a href="tel:+905527552090" class="phone-link">0552 755 20 90</a>
+    </p>
+    
+    <br>
+    <a href="https://wa.me/905527552090" class="btn-rez" style="display: inline-block; padding: 15px 30px;">Hemen Mesaj Atın</a>
+</div>
+        </div>
+        <div class="map-wrapper">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.447547000844!2d29.08889987655458!3d41.08099681502446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab8292305886d%3A0x6e8e80718d712079!2sKavac%C4%B1k%2C%20Ruhi%20Esmer%20Sk.%20No%3A7%20D%3A2%2C%2034810%20Beykoz%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1714400000000!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+    </div>
+</section>
+
+<footer class="footer"><p>© 2026 Kavacık Asia Hotel</p></footer>
+<footer class="footer"><p>ALCERA.DİGİTAL--İNSTAGRAM</p></footer>
+</body>
+</html>
