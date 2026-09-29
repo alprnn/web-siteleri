@@ -86,440 +86,637 @@
   }
 }
 </script>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@500;700;800&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "surface-variant": "#e4e2e2",
-                    "on-background": "#1b1c1c",
-                    "tertiary": "#000000",
-                    "on-secondary-fixed": "#261900",
-                    "on-error": "#ffffff",
-                    "surface-container": "#efeded",
-                    "on-primary": "#ffffff",
-                    "surface-container-high": "#eae8e7",
-                    "on-tertiary-fixed": "#191c1d",
-                    "primary": "#000000",
-                    "primary-fixed": "#d6e3ff",
-                    "surface-bright": "#fbf9f8",
-                    "surface-container-highest": "#e4e2e2",
-                    "secondary-container": "#fed488",
-                    "surface-container-lowest": "#ffffff",
-                    "secondary-fixed": "#ffdea5",
-                    "on-primary-fixed": "#0d1c32",
-                    "inverse-primary": "#b9c7e4",
-                    "tertiary-fixed-dim": "#c5c7c8",
-                    "error": "#ba1a1a",
-                    "on-secondary-container": "#785a1a",
-                    "on-secondary-fixed-variant": "#5d4201",
-                    "outline": "#75777e",
-                    "on-surface-variant": "#44474d",
-                    "inverse-on-surface": "#f2f0f0",
-                    "secondary": "#775a19",
-                    "surface-tint": "#515f78",
-                    "tertiary-container": "#191c1d",
-                    "on-secondary": "#ffffff",
-                    "on-error-container": "#93000a",
-                    "on-surface": "#1b1c1c",
-                    "on-tertiary": "#ffffff",
-                    "surface-dim": "#dbd9d9",
-                    "tertiary-fixed": "#e1e3e4",
-                    "on-tertiary-container": "#828485",
-                    "surface": "#fbf9f8",
-                    "on-primary-fixed-variant": "#39475f",
-                    "secondary-fixed-dim": "#e9c176",
-                    "outline-variant": "#c5c6cd",
-                    "inverse-surface": "#303030",
-                    "on-primary-container": "#76849f",
-                    "primary-container": "#0d1c32",
-                    "error-container": "#ffdad6",
-                    "on-tertiary-fixed-variant": "#454748",
-                    "background": "#fbf9f8",
-                    "primary-fixed-dim": "#b9c7e4",
-                    "surface-container-low": "#f5f3f3"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.125rem",
-                    "lg": "0.25rem",
-                    "xl": "0.5rem",
-                    "full": "0.75rem"
-            },
-            "spacing": {
-                    "container-max": "1280px",
-                    "unit": "8px",
-                    "gutter": "24px",
-                    "margin-desktop": "64px",
-                    "section-gap": "120px",
-                    "margin-mobile": "20px"
-            },
-            "fontFamily": {
-                    "body-md": ["Inter"],
-                    "headline-lg-mobile": ["Playfair Display"],
-                    "headline-md": ["Playfair Display"],
-                    "label-sm": ["Inter"],
-                    "headline-lg": ["Playfair Display"],
-                    "body-lg": ["Inter"],
-                    "display-lg": ["Playfair Display"]
-            }
-          },
-        },
-      }
-    </script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f0e0c'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' fill='%23c9a66b' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
 <style>
-        /* Yavaş geçişler ve Scroll */
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
-        .booking-bar-shadow { box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.2); }
-        .hero-gradient { background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.3), rgba(0,0,0,0.8)); }
+:root{
+  --ink:#0f0e0c; --ink-2:#181612; --ink-3:#221f1a;
+  --ivory:#f8f4ed; --sand:#efe7da; --paper:#fbf9f5;
+  --gold:#b8935a; --gold-lt:#d8bd8a; --gold-dk:#8f6f3e;
+  --text:#27231e; --muted:#6e665b; --muted-lt:rgba(248,244,237,.68);
+  --line:rgba(184,147,90,.35); --line-dk:rgba(248,244,237,.14);
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Jost","Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --wrap:1240px; --gutter:clamp(20px,5vw,64px);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--text);font-family:var(--sans);font-weight:300;font-size:17px;line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+::selection{background:var(--gold);color:var(--ink)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+.ms{font-family:"Material Symbols Outlined";font-weight:200;font-style:normal;font-size:28px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;-webkit-font-feature-settings:"liga";font-feature-settings:"liga"}
 
-        /* Yazı Animasyonları */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in-up {
-            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .animate-fade-in-up-delayed {
-            opacity: 0;
-            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
-        }
+/* Tipografi */
+.eyebrow{font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:36px;height:1px;background:currentColor}
+.eyebrow.center::after{content:"";width:36px;height:1px;background:currentColor}
+.h-display{font-family:var(--serif);font-weight:400;line-height:1.05;letter-spacing:-.01em}
+.h-section{font-family:var(--serif);font-weight:400;font-size:clamp(36px,5vw,60px);line-height:1.1;letter-spacing:-.005em;margin-top:22px}
+.h-section em,.h-display em{font-style:italic;color:var(--gold)}
+.lead{font-size:clamp(17px,1.4vw,19px);color:var(--muted);max-width:60ch}
+.center{text-align:center}
+.center .lead{margin-left:auto;margin-right:auto}
+.ornament{display:flex;align-items:center;justify-content:center;gap:12px;color:var(--gold);margin:28px 0}
+.ornament::before,.ornament::after{content:"";width:60px;height:1px;background:var(--line)}
+.ornament span{width:6px;height:6px;border:1px solid currentColor;transform:rotate(45deg)}
 
-        /* Arka Plan Animasyonu - Düşen Mavi Yuvarlaklar */
-        @keyframes fall {
-            0% { transform: translateY(-100px); }
-            100% { transform: translateY(110vh); }
-        }
-        .snowball {
-            position: fixed;
-            top: -100px;
-            border-radius: 50%;
-            background: rgba(14, 165, 233, 0.25); 
-            animation: fall linear;
-            pointer-events: none; 
-            z-index: -100; 
-            box-shadow: 0 0 12px rgba(14, 165, 233, 0.4);
-        }
-    </style>
+/* Butonlar */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:18px 36px;font-size:12px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;border:1px solid transparent;cursor:pointer;transition:all .5s var(--ease);position:relative;overflow:hidden;white-space:nowrap}
+.btn-gold{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.btn-gold:hover{background:var(--gold-lt);border-color:var(--gold-lt)}
+.btn-ghost{border-color:rgba(248,244,237,.5);color:var(--ivory)}
+.btn-ghost:hover{background:var(--ivory);color:var(--ink);border-color:var(--ivory)}
+.btn-line{border-color:var(--text);color:var(--text)}
+.btn-line:hover{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
+.link-arrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-dk);border-bottom:1px solid var(--line);padding-bottom:6px;transition:gap .4s var(--ease),color .3s}
+.link-arrow:hover{gap:18px;color:var(--ink)}
+
+/* Header */
+.header{position:fixed;inset:0 0 auto 0;z-index:60;transition:background .5s var(--ease),padding .5s var(--ease),box-shadow .5s;padding:26px 0;color:var(--ivory)}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:1400px}
+.header.scrolled{background:rgba(251,249,245,.92);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);padding:14px 0;color:var(--text);box-shadow:0 1px 0 var(--line)}
+.logo{display:flex;flex-direction:column;line-height:1}
+.logo b{font-family:var(--serif);font-weight:500;font-size:26px;letter-spacing:.14em;text-transform:uppercase}
+.logo small{font-size:9.5px;letter-spacing:.5em;text-transform:uppercase;margin-top:6px;color:var(--gold-lt)}
+.header.scrolled .logo small{color:var(--gold-dk)}
+.nav{display:flex;gap:clamp(20px,2.4vw,36px)}
+.nav a,.header-tel{white-space:nowrap}
+.nav a{font-size:12px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;position:relative;padding:6px 0;opacity:.88;transition:opacity .3s}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+.nav a:hover{opacity:1}
+.nav a:hover::after{transform:scaleX(1);transform-origin:left}
+.header-cta{display:flex;align-items:center;gap:24px}
+.header-tel{font-size:13px;letter-spacing:.12em;display:flex;align-items:center;gap:8px}
+.header-tel .ms{font-size:18px;color:var(--gold-lt)}
+.header.scrolled .header-tel .ms{color:var(--gold)}
+.header .btn{padding:14px 26px}
+.header:not(.scrolled) .btn-gold{background:transparent;color:var(--ivory);border-color:rgba(248,244,237,.55)}
+.header:not(.scrolled) .btn-gold:hover{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.burger{display:none;background:none;border:0;cursor:pointer;width:44px;height:44px;position:relative}
+.burger span{position:absolute;left:10px;right:10px;height:1px;background:currentColor;transition:transform .4s var(--ease),top .4s var(--ease)}
+.burger span:nth-child(1){top:17px}.burger span:nth-child(2){top:26px}
+body.menu-open .burger span:nth-child(1){top:22px;transform:rotate(45deg)}
+body.menu-open .burger span:nth-child(2){top:22px;transform:rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;z-index:55;background:var(--ink);color:var(--ivory);display:flex;flex-direction:column;justify-content:center;padding:100px var(--gutter) 40px;opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s}
+body.menu-open .mobile-menu{opacity:1;visibility:visible}
+body.menu-open .header{color:var(--ivory);background:transparent;box-shadow:none}
+.mobile-menu a.mm{font-family:var(--serif);font-size:40px;line-height:1.5;display:block}
+.mobile-menu a.mm:hover{color:var(--gold-lt)}
+.mobile-menu .mm-foot{margin-top:40px;padding-top:24px;border-top:1px solid var(--line-dk);font-size:14px;color:var(--muted-lt)}
+
+/* Hero */
+.hero{position:relative;height:100vh;height:100svh;min-height:640px;display:flex;align-items:center;justify-content:center;overflow:hidden;color:var(--ivory);background:var(--ink)}
+.hero-media{position:absolute;inset:0}
+.hero-media img{width:100%;height:100%;object-fit:cover;animation:kenburns 18s var(--ease) forwards;transform-origin:center 40%}
+@keyframes kenburns{from{transform:scale(1.14)}to{transform:scale(1)}}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,14,12,.72) 0%,rgba(15,14,12,.28) 38%,rgba(15,14,12,.45) 70%,rgba(15,14,12,.92) 100%)}
+.hero-inner{position:relative;z-index:2;text-align:center;padding:120px var(--gutter) 180px;max-width:1100px}
+.hero .eyebrow{color:var(--gold-lt)}
+.hero .eyebrow::after{content:"";width:36px;height:1px;background:currentColor}
+.hero h1{margin-top:30px}
+.hero h1 .kw{display:block;font-family:var(--sans);font-size:clamp(11px,1.1vw,13px);font-weight:400;letter-spacing:.4em;text-transform:uppercase;color:var(--muted-lt);margin-bottom:26px}
+.hero h1 .big{display:block;font-size:clamp(50px,8.6vw,124px)}
+.hero p{font-size:clamp(16px,1.5vw,20px);color:rgba(248,244,237,.82);max-width:640px;margin:28px auto 0}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:44px}
+.scroll-cue{position:absolute;left:50%;bottom:150px;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:12px;font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--muted-lt)}
+.scroll-cue i{width:1px;height:48px;background:linear-gradient(var(--gold-lt),transparent);animation:cue 2.4s var(--ease) infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.fade-up{opacity:0;transform:translateY(34px);animation:fadeUp 1.4s var(--ease) forwards}
+.d1{animation-delay:.2s}.d2{animation-delay:.45s}.d3{animation-delay:.7s}.d4{animation-delay:.95s}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+
+/* Rezervasyon */
+.booking{position:relative;z-index:5;margin-top:-96px}
+.booking-card{background:var(--ink-2);color:var(--ivory);display:grid;grid-template-columns:repeat(4,1fr) auto;box-shadow:0 40px 80px -30px rgba(15,14,12,.55);border:1px solid var(--line-dk)}
+.bfield{padding:26px 28px;border-right:1px solid var(--line-dk);display:flex;flex-direction:column;gap:8px;transition:background .3s}
+.bfield:hover{background:var(--ink-3)}
+.bfield label{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-lt)}
+.bfield input,.bfield select{background:transparent;border:0;outline:0;font-family:var(--serif);font-size:22px;color:var(--ivory);width:100%;cursor:pointer;color-scheme:dark;-webkit-appearance:none;appearance:none}
+.bfield select option{background:var(--ink-2);color:var(--ivory);font-family:var(--sans);font-size:15px}
+.booking-card .btn{height:100%;padding:0 44px;font-size:12px}
+
+/* Bölümler */
+section{position:relative}
+.sec{padding:clamp(96px,12vw,160px) 0}
+.sec-ivory{background:var(--ivory)}
+.sec-dark{background:var(--ink);color:var(--ivory)}
+.sec-dark .lead{color:var(--muted-lt)}
+.sec-dark .eyebrow{color:var(--gold-lt)}
+
+/* Hakkında */
+.about{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(48px,7vw,110px);align-items:center}
+.about-media{position:relative;padding:0 0 70px 0}
+.about-media .m1{aspect-ratio:4/5;object-fit:cover;width:82%}
+.about-media .m2{position:absolute;right:0;bottom:0;width:52%;aspect-ratio:1/1;object-fit:cover;border:10px solid var(--paper);box-shadow:0 30px 60px -30px rgba(15,14,12,.4)}
+.about-media .frame{position:absolute;top:-22px;left:-22px;width:60%;height:60%;border:1px solid var(--line);z-index:-1}
+.about-text .lead{margin-top:26px}
+.quote{font-family:var(--serif);font-style:italic;font-size:clamp(22px,2.2vw,28px);line-height:1.45;color:var(--text);border-left:1px solid var(--gold);padding-left:24px;margin:34px 0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:40px}
+.stat{padding:26px 16px 0 0}
+.stat b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(34px,3.6vw,48px);line-height:1;color:var(--gold-dk)}
+.stat span{display:block;margin-top:12px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+
+/* Odalar */
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:clamp(56px,7vw,96px)}
+.sec-head .lead{max-width:44ch}
+.room{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(36px,6vw,96px);align-items:center}
+.room+.room{margin-top:clamp(80px,10vw,140px)}
+.room:nth-child(even){grid-template-columns:1fr 1.35fr}
+.room:nth-child(even) .room-media{order:2}
+.room-media{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--sand)}
+.room-media img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
+.room:hover .room-media img{transform:scale(1.05)}
+.room-badge{position:absolute;top:24px;left:24px;background:var(--paper);color:var(--ink);font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;padding:9px 16px}
+.room-num{font-family:var(--serif);font-size:18px;color:var(--gold);letter-spacing:.2em;display:flex;align-items:center;gap:16px}
+.room-num::after{content:"";flex:0 0 60px;height:1px;background:var(--line)}
+.room h3{font-family:var(--serif);font-weight:400;font-size:clamp(38px,4.4vw,56px);line-height:1.05;margin:18px 0 20px}
+.room p{color:var(--muted)}
+.feat{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;margin:32px 0 38px;padding:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.feat li{display:flex;align-items:center;gap:12px;font-size:14.5px;color:var(--text)}
+.feat .ms{font-size:22px;color:var(--gold)}
+.room-actions{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+
+/* Olanaklar */
+.amen{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--line-dk);border-left:1px solid var(--line-dk);margin-top:72px}
+.amen div{padding:44px 20px;border-right:1px solid var(--line-dk);border-bottom:1px solid var(--line-dk);text-align:center;transition:background .5s var(--ease)}
+.amen div:hover{background:var(--ink-3)}
+.amen .ms{font-size:38px;color:var(--gold-lt)}
+.amen h3{font-family:var(--sans);font-weight:400;font-size:12px;letter-spacing:.24em;text-transform:uppercase;margin-top:20px;line-height:1.6}
+
+/* Galeri */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(160px,19vw,270px);gap:14px;margin-top:72px}
+.gallery figure{position:relative;overflow:hidden;background:var(--sand)}
+.gallery figure:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gallery figure:nth-child(4){grid-row:span 2}
+.gallery figure:nth-child(6){grid-column:span 2}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease),filter 1s}
+.gallery figure:hover img{transform:scale(1.06)}
+.gallery figure::after{content:"";position:absolute;inset:14px;border:1px solid rgba(248,244,237,0);transition:border-color .6s var(--ease)}
+.gallery figure:hover::after{border-color:rgba(248,244,237,.6)}
+
+/* Konum */
+.loc{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(48px,7vw,100px);align-items:start}
+.loc-list{list-style:none;margin-top:44px}
+.loc-list li{display:grid;grid-template-columns:48px 1fr;gap:18px;padding:26px 0;border-top:1px solid var(--line-dk)}
+.loc-list li:last-child{border-bottom:1px solid var(--line-dk)}
+.loc-list .ms{color:var(--gold-lt);font-size:30px;margin-top:4px}
+.loc-list h3{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.2}
+.loc-list p{color:var(--muted-lt);font-size:15.5px;margin-top:6px}
+.map{position:relative;height:100%;min-height:520px;border:1px solid var(--line-dk);padding:12px}
+.map iframe{width:100%;height:100%;min-height:494px;border:0;filter:grayscale(.85) contrast(1.05) brightness(.92);transition:filter .8s}
+.map:hover iframe{filter:none}
+.addr{margin-top:36px;display:flex;flex-wrap:wrap;gap:16px 40px;font-size:15px}
+.addr a{display:flex;gap:10px;align-items:flex-start;color:var(--ivory)}
+.addr a:hover{color:var(--gold-lt)}
+.addr .ms{font-size:20px;color:var(--gold-lt);margin-top:3px}
+
+/* SSS */
+.faq{max-width:880px;margin:64px auto 0}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:28px 0;font-family:var(--serif);font-size:clamp(21px,2vw,26px);line-height:1.3;transition:color .3s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--gold-dk)}
+.faq summary i{flex:0 0 22px;height:22px;position:relative}
+.faq summary i::before,.faq summary i::after{content:"";position:absolute;top:50%;left:0;width:100%;height:1px;background:var(--gold);transition:transform .5s var(--ease)}
+.faq summary i::after{transform:rotate(90deg)}
+.faq details[open] summary i::after{transform:rotate(0)}
+.faq details p{color:var(--muted);padding:0 60px 30px 0;max-width:70ch}
+
+/* CTA */
+.cta{position:relative;color:var(--ivory);text-align:center;overflow:hidden;background:var(--ink)}
+.cta img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.32}
+.cta .wrap{position:relative;padding-top:clamp(100px,12vw,160px);padding-bottom:clamp(100px,12vw,160px)}
+.cta .h-section{font-size:clamp(40px,5.6vw,72px)}
+.cta p{color:var(--muted-lt);margin:22px auto 0;max-width:52ch}
+.cta .hero-actions{margin-top:40px}
+
+/* Footer */
+.footer{background:var(--ink);color:var(--muted-lt);padding:96px 0 40px;border-top:1px solid var(--line-dk)}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:48px}
+.footer .logo{color:var(--ivory)}
+.footer .logo small{color:var(--gold-lt)}
+.footer p{font-size:15px;margin-top:24px;max-width:34ch}
+.foot-title{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:22px;font-weight:400}
+.foot-links{display:flex;flex-direction:column;gap:10px;font-size:15px}
+.foot-links a:hover,.footer address a:hover{color:var(--ivory)}
+.footer address{font-style:normal;font-size:15px;display:flex;flex-direction:column;gap:14px}
+.footer address a{display:flex;gap:10px;align-items:flex-start}
+.footer address .ms{font-size:19px;color:var(--gold-lt);margin-top:4px}
+.foot-bottom{margin-top:72px;padding-top:28px;border-top:1px solid var(--line-dk);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:12.5px;letter-spacing:.06em}
+
+/* WhatsApp & mobil bar */
+.wa-fab{position:fixed;right:28px;bottom:28px;z-index:50;width:60px;height:60px;border-radius:50%;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 18px 40px -12px rgba(15,14,12,.5);transition:transform .4s var(--ease),background .3s}
+.wa-fab:hover{transform:translateY(-4px);background:var(--gold-lt)}
+.wa-fab svg{width:28px;height:28px;fill:currentColor}
+.mbar{display:none}
+
+/* Scroll animasyonu */
+.reveal{opacity:0;transform:translateY(46px);transition:opacity 1.3s var(--ease),transform 1.3s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal.r2{transition-delay:.15s}.reveal.r3{transition-delay:.3s}
+
+/* Responsive */
+@media (max-width:1100px){
+  .nav,.header-tel{display:none}
+  .burger{display:block}
+  .booking-card{grid-template-columns:1fr 1fr}
+  .bfield:nth-child(2n){border-right:0}
+  .bfield{border-bottom:1px solid var(--line-dk)}
+  .booking-card .btn{grid-column:1/-1;padding:24px}
+  .amen{grid-template-columns:repeat(3,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  body{font-size:16px}
+  .header .btn{display:none}
+  .about,.loc{grid-template-columns:1fr}
+  .about-media{order:-1}
+  .room,.room:nth-child(even){grid-template-columns:1fr}
+  .room:nth-child(even) .room-media{order:0}
+  .sec-head{flex-direction:column;align-items:flex-start}
+  .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:170px;gap:10px}
+  .gallery figure:nth-child(4){grid-row:span 1}
+  .gallery figure:nth-child(6){grid-column:span 1}
+  .gallery figure:nth-child(7){grid-column:span 2}
+  .map,.map iframe{min-height:380px}
+  .scroll-cue{display:none}
+  .hero-inner{padding-bottom:150px}
+  .wa-fab{display:none}
+  .mbar{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--ink);border-top:1px solid var(--line-dk);padding-bottom:env(safe-area-inset-bottom)}
+  .mbar a{display:flex;align-items:center;justify-content:center;gap:10px;padding:17px 10px;font-size:11.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ivory)}
+  .mbar a+a{background:var(--gold);color:var(--ink)}
+  .mbar .ms{font-size:20px}
+  .mbar svg{width:18px;height:18px;fill:currentColor}
+  .footer{padding-bottom:110px}
+}
+@media (max-width:560px){
+  .booking{margin-top:-70px}
+  .booking-card{grid-template-columns:1fr}
+  .bfield{border-right:0;padding:18px 22px}
+  .bfield input,.bfield select{font-size:20px}
+  .stats{grid-template-columns:1fr 1fr 1fr}
+  .stat span{letter-spacing:.14em;font-size:10px}
+  .feat{grid-template-columns:1fr}
+  .amen{grid-template-columns:1fr 1fr}
+  .amen div{padding:34px 12px}
+  .foot-grid{grid-template-columns:1fr}
+  .faq details p{padding-right:0}
+  .hero-actions .btn{width:100%}
+  .about-media .m2{border-width:6px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal,.fade-up{opacity:1;transform:none}
+}
+</style>
 </head>
-<body class="bg-background text-on-background font-body-md selection:bg-secondary-container selection:text-on-secondary-container overflow-x-hidden">
-    
-<a href="https://wa.me/905527552090" target="_blank" rel="noopener" class="fixed bottom-24 right-6 md:bottom-10 md:right-10 z-50 bg-secondary text-on-primary w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform active:scale-95 group" aria-label="WhatsApp">
-    <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
-    </svg>
-</a>
+<body>
 
-<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto bg-surface/80 dark:bg-surface-container-highest/80 backdrop-blur-xl shadow-sm transition-all duration-300" id="main-nav">
-<a class="font-display-lg text-body-lg font-bold tracking-tight text-primary" href="#" title="Kavacık Asia Hotel – Beykoz Kavacık Otel">Kavacık Asia Hotel</a>
-<nav class="hidden md:flex items-center gap-8">
-<a class="text-primary font-bold border-b border-primary pb-1 font-label-sm text-label-sm uppercase tracking-widest" href="#">Ana Sayfa</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm uppercase tracking-widest" href="#rooms">Odalar</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm uppercase tracking-widest" href="#cafe">Kafe & Restoran</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm uppercase tracking-widest" href="#konum">Konum</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm uppercase tracking-widest" href="#sss">SSS</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm uppercase tracking-widest" href="#contact">İletişim</a>
-</nav>
-<a href="https://wa.me/905527552090" target="_blank" class="bg-primary text-on-primary px-8 py-3 font-label-sm text-label-sm uppercase tracking-widest hover:opacity-80 transition-all active:scale-95 inline-block">
-            Hemen Ara
-        </a>
+<header class="header" id="header">
+  <div class="wrap">
+    <a href="#" class="logo" title="Kavacık Asia Hotel – Beykoz Kavacık Otel" aria-label="Kavacık Asia Hotel ana sayfa">
+      <b>Kavacık <span lang="en">Asia</span></b>
+      <small>Hotel · İstanbul</small>
+    </a>
+    <nav class="nav" aria-label="Ana menü">
+      <a href="#hakkimizda">Otel</a>
+      <a href="#rooms">Odalar</a>
+      <a href="#cafe">Kafe & Restoran</a>
+      <a href="#konum">Konum</a>
+      <a href="#sss">SSS</a>
+    </nav>
+    <div class="header-cta">
+      <a class="header-tel" href="tel:+905527552090"><span class="ms">call</span>0552 755 20 90</a>
+      <a class="btn btn-gold" href="https://wa.me/905527552090" target="_blank" rel="noopener">Rezervasyon</a>
+      <button class="burger" id="burger" aria-label="Menüyü aç" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </div>
 </header>
 
-<section id="home" class="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden">
-<div class="absolute inset-0 z-0">
-<img class="w-full h-full object-cover" alt="Kavacık Asia Hotel yakınındaki Fatih Sultan Mehmet Köprüsü – Beykoz Kavacık otel" src="fsm11.jpg" fetchpriority="high">
-<div class="absolute inset-0 hero-gradient"></div>
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <a class="mm" href="#hakkimizda">Otel</a>
+  <a class="mm" href="#rooms">Odalar</a>
+  <a class="mm" href="#cafe">Kafe & Restoran</a>
+  <a class="mm" href="#konum">Konum</a>
+  <a class="mm" href="#sss">Sıkça Sorulan Sorular</a>
+  <div class="mm-foot">Kavacık, Ruhi Esmer Sokağı No:7/2, Beykoz/İstanbul<br><a href="tel:+905527552090">0552 755 20 90</a></div>
 </div>
-<div class="relative z-10 text-center text-on-primary px-margin-mobile w-full" id="hero-content">
-<h1 class="text-5xl md:text-7xl lg:text-8xl font-display-lg font-bold max-w-6xl mx-auto leading-tight drop-shadow-2xl animate-fade-in-up">
-                <span class="block font-body-md text-sm md:text-base font-semibold uppercase tracking-[0.3em] mb-6 opacity-90">Kavacık Asia Hotel · Beykoz Kavacık Otel</span>
-                Kavacığın Kalbinde,<br>Sakin Bir Konaklama
-            </h1>
-<p class="text-xl md:text-2xl font-body-lg mt-8 max-w-3xl mx-auto opacity-90 drop-shadow-lg animate-fade-in-up-delayed">
-                Beykoz Kavacık'ta, FSM Köprüsü'ne dakikalar mesafede; huzur ve profesyonelliğin mükemmel uyumunu keşfedin.
-            </p>
-</div>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="hero-media">
+    <img src="fsm11.jpg" alt="Kavacık Asia Hotel yakınındaki Fatih Sultan Mehmet Köprüsü – Beykoz Kavacık otel" fetchpriority="high">
+  </div>
+  <div class="hero-inner">
+    <span class="eyebrow fade-up">Beykoz · Kavacık · İstanbul</span>
+    <h1 class="h-display fade-up d1">
+      <span class="kw">Kavacık <span lang="en">Asia Hotel</span> · Beykoz Kavacık Otel</span>
+      <span class="big">Kavacığın Kalbinde,<br><em>Sakin</em> Bir Konaklama</span>
+    </h1>
+    <p class="fade-up d2">Beykoz Kavacık'ta, FSM Köprüsü'ne dakikalar mesafede; huzur ve profesyonelliğin mükemmel uyumunu keşfedin.</p>
+    <div class="hero-actions fade-up d3">
+      <a class="btn btn-gold" href="https://wa.me/905527552090" target="_blank" rel="noopener">Rezervasyon Yap</a>
+      <a class="btn btn-ghost" href="#rooms">Odaları Keşfet</a>
+    </div>
+  </div>
+  <div class="scroll-cue fade-up d4"><i></i>Keşfet</div>
 </section>
 
-<div class="w-full bg-surface border-y border-outline-variant/30 relative z-20 booking-bar-shadow mb-16 animate-fade-in-up-delayed">
-    <div class="w-full grid grid-cols-1 md:grid-cols-5 items-center">
-        <div class="p-6 md:p-8 border-b md:border-b-0 md:border-r border-surface-variant flex flex-col hover:bg-surface-container-low transition-colors w-full">
-            <label for="checkin_date" class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-2">Giriş Tarihi</label>
-            <input id="checkin_date" class="bg-transparent border-none focus:ring-0 p-0 font-bold text-on-surface cursor-pointer w-full" type="date">
-        </div>
-        <div class="p-6 md:p-8 border-b md:border-b-0 md:border-r border-surface-variant flex flex-col hover:bg-surface-container-low transition-colors w-full">
-            <label for="checkout_date" class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-2">Çıkış Tarihi</label>
-            <input id="checkout_date" class="bg-transparent border-none focus:ring-0 p-0 font-bold text-on-surface cursor-pointer w-full" type="date">
-        </div>
-        <div class="p-6 md:p-8 border-b md:border-b-0 md:border-r border-surface-variant flex flex-col hover:bg-surface-container-low transition-colors w-full">
-            <label for="room_type" class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-2">Oda Tipi</label>
-            <select id="room_type" class="bg-transparent border-none focus:ring-0 p-0 font-bold text-on-surface appearance-none cursor-pointer w-full">
-                <option value="Standart Oda">Standart Oda</option>
-                <option value="Twin Oda">Twin Oda</option>
-                <option value="Aile Odası">Aile Odası</option>
-            </select>
-        </div>
-        <div class="p-6 md:p-8 border-b md:border-b-0 md:border-r border-surface-variant flex flex-col hover:bg-surface-container-low transition-colors w-full">
-            <label for="guest_count" class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-2">Misafirler</label>
-            <select id="guest_count" class="bg-transparent border-none focus:ring-0 p-0 font-bold text-on-surface appearance-none cursor-pointer w-full">
-                <option value="1 Yetişkin">1 Yetişkin</option>
-                <option value="2 Yetişkin" selected="">2 Yetişkin</option>
-                <option value="3 Yetişkin">3 Yetişkin</option>
-                <option value="4 Yetişkin">4 Yetişkin</option>
-            </select>
-        </div>
-        <button onclick="checkAvailability()" class="bg-primary text-on-primary h-full w-full py-8 md:py-0 font-bold uppercase tracking-widest hover:bg-secondary transition-colors flex items-center justify-center gap-2 cursor-pointer">
-            <span class="material-symbols-outlined">search</span>
-            Müsaitlik Sor
-        </button>
-    </div>
+<div class="booking">
+  <div class="wrap">
+    <form class="booking-card" onsubmit="checkAvailability();return false;" aria-label="Müsaitlik sorgulama">
+      <div class="bfield">
+        <label for="checkin_date">Giriş Tarihi</label>
+        <input id="checkin_date" type="date" required>
+      </div>
+      <div class="bfield">
+        <label for="checkout_date">Çıkış Tarihi</label>
+        <input id="checkout_date" type="date" required>
+      </div>
+      <div class="bfield">
+        <label for="room_type">Oda Tipi</label>
+        <select id="room_type">
+          <option value="Standart Oda">Standart Oda</option>
+          <option value="Twin Oda">Twin Oda</option>
+          <option value="Aile Odası">Aile Odası</option>
+        </select>
+      </div>
+      <div class="bfield">
+        <label for="guest_count">Misafirler</label>
+        <select id="guest_count">
+          <option value="1 Yetişkin">1 Yetişkin</option>
+          <option value="2 Yetişkin" selected>2 Yetişkin</option>
+          <option value="3 Yetişkin">3 Yetişkin</option>
+          <option value="4 Yetişkin">4 Yetişkin</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-gold">Müsaitlik Sor</button>
+    </form>
+  </div>
 </div>
 
-<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto reveal relative z-10">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
-<div class="space-y-8 bg-surface/50 p-8 rounded-xl backdrop-blur-sm border border-white/20">
-<div class="inline-block px-4 py-1 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase tracking-widest">
-                    Stratejik Lokasyon
-                </div>
-<h2 class="font-headline-md text-headline-md leading-tight">Kavacık'ta Otel: İş Dünyasının Merkezinde,<br>Evinizin Konforunda</h2>
-<p class="text-on-surface-variant text-body-lg leading-relaxed">
-                    Kavacık Asia Hotel, İstanbul Beykoz'un parlayan yıldızı Kavacık'ta, iş dünyasının kalbinin attığı noktada yer alıyor. Fatih Sultan Mehmet Köprüsü'ne sadece birkaç dakika mesafede, her iki yakaya da ulaşım kolaylığı sunan otelimiz, modern tasarımı ve kusursuz hizmet anlayışıyla öncelikli tercihiniz.
-                </p>
-<div class="grid grid-cols-2 gap-8">
-<div class="space-y-2">
-<h4 class="font-bold text-headline-md text-secondary">24/7</h4>
-<p class="font-label-sm text-label-sm uppercase text-on-surface-variant">Resepsiyon Hizmeti</p>
-</div>
-<div class="space-y-2">
-<h4 class="font-bold text-headline-md text-secondary">A+</h4>
-<p class="font-label-sm text-label-sm uppercase text-on-surface-variant">Konfor ve Hijyen</p>
-</div>
-</div>
-</div>
-<div class="relative group">
-    <div class="w-full h-[400px] flex items-center justify-center p-6 bg-surface-container-low rounded-xl border border-outline-variant/20 shadow-inner overflow-hidden relative">
-        <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fatih Sultan Mehmet Köprüsü çizimi" class="w-full h-full text-secondary opacity-80 drop-shadow-lg transform group-hover:scale-105 transition-transform duration-700">
-            <path d="M 0 300 Q 150 250, 400 300 T 800 280 L 800 400 L 0 400 Z" fill="currentColor" opacity="0.05" />
-            
-            <rect x="0" y="250" width="800" height="20" fill="currentColor" />
-            
-            <rect x="200" y="50" width="40" height="350" fill="currentColor" />
-            <rect x="200" y="100" width="40" height="10" fill="#fff" opacity="0.4" />
-            <rect x="200" y="200" width="40" height="10" fill="#fff" opacity="0.4" />
-            
-            <rect x="560" y="50" width="40" height="350" fill="currentColor" />
-            <rect x="560" y="100" width="40" height="10" fill="#fff" opacity="0.4" />
-            <rect x="560" y="200" width="40" height="10" fill="#fff" opacity="0.4" />
-            
-            <path d="M 0 50 Q 100 50, 220 50 T 400 240 T 580 50 T 800 50" fill="none" stroke="currentColor" stroke-width="8" />
-            
-            <line x1="100" y1="120" x2="100" y2="250" stroke="currentColor" stroke-width="2" opacity="0.8" />
-            <line x1="150" y1="85" x2="150" y2="250" stroke="currentColor" stroke-width="2" opacity="0.8" />
-            <line x1="260" y1="110" x2="260" y2="250" stroke="currentColor" stroke-width="2" opacity="0.8" />
-            <line x1="300" y1="160" x2="300" y2="250" stroke="currentColor" stroke-width="2" opacity="0.8" />
-            <line x1="340" y1="210" x2="340" y2="250" stroke="currentColor" stroke-width="2" opacity="0.8" />
-            <line x1="380" y1="235" x2="380" y2="250" stroke="currentColor" stroke-width="2" opacity="0.8" />
-            <line x1="420" y1="235" x2="420" y2="250" stroke="currentColor" stroke-width="2" opacity="0.8" />
-            <line x1="460" y1="210" x2="460" y2="250" stroke="currentColor" stroke-width="2" opacity="0.8" />
-            <line x1="500" y1="160" x2="500" y2="250" stroke="currentColor" stroke-width="2" opacity="0.8" />
-            <line x1="540" y1="110" x2="540" y2="250" stroke="currentColor" stroke-width="2" opacity="0.8" />
-            <line x1="650" y1="85" x2="650" y2="250" stroke="currentColor" stroke-width="2" opacity="0.8" />
-            <line x1="700" y1="120" x2="700" y2="250" stroke="currentColor" stroke-width="2" opacity="0.8" />
-            
-            <path d="M 0 350 Q 50 340, 100 350 T 200 350 T 300 350 T 400 350 T 500 350 T 600 350 T 700 350 T 800 350" fill="none" stroke="currentColor" stroke-width="3" opacity="0.3" />
-            <path d="M 0 370 Q 50 360, 100 370 T 200 370 T 300 370 T 400 370 T 500 370 T 600 370 T 700 370 T 800 370" fill="none" stroke="currentColor" stroke-width="3" opacity="0.2" />
-        </svg>
+<section class="sec" id="hakkimizda">
+  <div class="wrap about">
+    <div class="about-media reveal">
+      <div class="frame"></div>
+      <img class="m1" src="kafe5.jpeg" alt="Kavacık Asia Hotel iç mekan – Beykoz Kavacık otel" loading="lazy" decoding="async">
+      <img class="m2" src="standartoda.jpeg" alt="Kavacık Asia Hotel konforlu otel odası" loading="lazy" decoding="async">
     </div>
-</div>
-</div>
+    <div class="about-text reveal r2">
+      <span class="eyebrow">Stratejik Lokasyon</span>
+      <h2 class="h-section">Kavacık'ta Otel: İş Dünyasının Merkezinde, <em>Evinizin Konforunda</em></h2>
+      <p class="lead">Kavacık Asia Hotel, İstanbul Beykoz'un parlayan yıldızı Kavacık'ta, iş dünyasının kalbinin attığı noktada yer alıyor. Fatih Sultan Mehmet Köprüsü'ne sadece birkaç dakika mesafede, her iki yakaya da ulaşım kolaylığı sunan otelimiz, modern tasarımı ve kusursuz hizmet anlayışıyla öncelikli tercihiniz.</p>
+      <blockquote class="quote">“Şehrin temposuna yakın, gürültüsüne uzak.”</blockquote>
+      <div class="stats">
+        <div class="stat"><b>24/7</b><span>Resepsiyon</span></div>
+        <div class="stat"><b>03</b><span>Oda Tipi</span></div>
+        <div class="stat"><b>A+</b><span>Konfor & Hijyen</span></div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="rooms" class="bg-surface-container-low/80 py-section-gap backdrop-blur-md relative z-10 border-y border-outline-variant/20">
-<div class="px-margin-desktop max-w-container-max mx-auto reveal">
-<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-<div class="max-w-2xl">
-<p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-4">Özel Konaklama</p>
-<h2 class="font-headline-md text-headline-md">Kavacık Otel Odalarımız: Zarafet ve Fonksiyonellik Bir Arada</h2>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-    
-<div class="group bg-surface flex flex-col hover:shadow-2xl transition-shadow duration-500 rounded-xl overflow-hidden">
-<div class="relative overflow-hidden aspect-[3/4]">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Kavacık Asia Hotel Standart Oda – Beykoz Kavacık otel odası" src="standartoda.jpeg" loading="lazy" decoding="async">
-<div class="absolute top-6 left-6">
-<span class="bg-secondary text-on-primary px-4 py-1 font-label-sm text-label-sm uppercase tracking-tighter rounded">En Çok Tercih Edilen</span>
-</div>
-</div>
-<div class="p-8 space-y-4">
-<div class="flex flex-col gap-2 items-start">
-<h3 class="font-headline-md text-xl font-bold">Standart Oda</h3>
-<a href="https://wa.me/905527552090?text=Merhaba,%20Standart%20Oda%20için%20rezervasyon%20yaptırmak%20istiyorum." target="_blank" class="text-secondary font-bold text-sm bg-secondary/10 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-secondary hover:text-white transition-colors w-full justify-center">
-    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
-    WhatsApp ile Rezervasyon
+<section class="sec sec-ivory" id="rooms">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Özel Konaklama</span>
+        <h2 class="h-section">Kavacık Otel Odalarımız: <em>Zarafet</em> ve Fonksiyonellik Bir Arada</h2>
+      </div>
+      <p class="lead">Her biri dinlenmeniz ve verimli çalışmanız düşünülerek hazırlanan üç farklı oda seçeneği.</p>
+    </div>
+
+    <div class="rooms">
+      <article class="room reveal">
+        <div class="room-media">
+          <img src="standartoda.jpeg" alt="Kavacık Asia Hotel Standart Oda – Beykoz Kavacık otel odası" loading="lazy" decoding="async">
+          <span class="room-badge">En Çok Tercih Edilen</span>
+        </div>
+        <div class="room-body">
+          <span class="room-num">01</span>
+          <h3>Standart Oda</h3>
+          <p>Şehir manzaralı, geniş çalışma masası ve ultra konforlu yatak sistemi ile seyahatleriniz için tasarlandı.</p>
+          <ul class="feat">
+            <li><span class="ms">wifi</span>Ücretsiz WiFi</li>
+            <li><span class="ms">tv</span>Akıllı TV</li>
+            <li><span class="ms">desk</span>Çalışma Masası</li>
+            <li><span class="ms">location_city</span>Şehir Manzarası</li>
+          </ul>
+          <div class="room-actions">
+            <a class="btn btn-line" href="https://wa.me/905527552090?text=Merhaba,%20Standart%20Oda%20için%20rezervasyon%20yaptırmak%20istiyorum." target="_blank" rel="noopener">WhatsApp ile Rezervasyon</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="room reveal">
+        <div class="room-media">
+          <img src="aile-odasi.jpeg" alt="Kavacık Asia Hotel Aile Odası – Beykoz'da aile oteli" loading="lazy" decoding="async">
+        </div>
+        <div class="room-body">
+          <span class="room-num">02</span>
+          <h3>Aile Odası</h3>
+          <p>Geniş yaşam alanı ve lüks donanımlarla ailenizle birlikte konaklamanızı bir üst seviyeye taşıyın.</p>
+          <ul class="feat">
+            <li><span class="ms">king_bed</span>Geniş Yataklar</li>
+            <li><span class="ms">ac_unit</span>Klima</li>
+            <li><span class="ms">family_restroom</span>Aileler İçin</li>
+            <li><span class="ms">wifi</span>Ücretsiz WiFi</li>
+          </ul>
+          <div class="room-actions">
+            <a class="btn btn-line" href="https://wa.me/905527552090?text=Merhaba,%20Aile%20Odası%20için%20rezervasyon%20yaptırmak%20istiyorum." target="_blank" rel="noopener">WhatsApp ile Rezervasyon</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="room reveal">
+        <div class="room-media">
+          <img src="twinoda.jpeg" alt="Kavacık Asia Hotel Twin Oda – ayrı yataklı otel odası Kavacık" loading="lazy" decoding="async">
+        </div>
+        <div class="room-body">
+          <span class="room-num">03</span>
+          <h3>Twin Oda</h3>
+          <p>Geniş pencereleriyle gün ışığının her köşeye süzüldüğü, ferah ve konforlu ayrı yataklı yaşam alanı.</p>
+          <ul class="feat">
+            <li><span class="ms">bed</span>İkiz Yatak</li>
+            <li><span class="ms">room_service</span>Oda Servisi</li>
+            <li><span class="ms">wb_sunny</span>Gün Işığı</li>
+            <li><span class="ms">wifi</span>Ücretsiz WiFi</li>
+          </ul>
+          <div class="room-actions">
+            <a class="btn btn-line" href="https://wa.me/905527552090?text=Merhaba,%20Twin%20Oda%20için%20rezervasyon%20yaptırmak%20istiyorum." target="_blank" rel="noopener">WhatsApp ile Rezervasyon</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-dark" id="olanaklar">
+  <div class="wrap center">
+    <div class="reveal">
+      <span class="eyebrow center">Olanaklar</span>
+      <h2 class="h-section">Konaklamanızın Her Anında <em>Özen</em></h2>
+      <p class="lead" style="margin-top:22px">İş ya da tatil; ihtiyaç duyduğunuz her şey tek bir çatı altında.</p>
+    </div>
+    <div class="amen reveal r2">
+      <div><span class="ms">wifi</span><h3>Ücretsiz<br>WiFi</h3></div>
+      <div><span class="ms">concierge</span><h3>24 Saat<br>Resepsiyon</h3></div>
+      <div><span class="ms">room_service</span><h3>Oda<br>Servisi</h3></div>
+      <div><span class="ms">ac_unit</span><h3>Klimalı<br>Odalar</h3></div>
+      <div><span class="ms">tv</span><h3>Akıllı<br>TV</h3></div>
+      <div><span class="ms">local_cafe</span><h3>Kafe &<br>Restoran</h3></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="cafe">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow center">Lezzet</span>
+      <h2 class="h-section">Kavacık Asia Hotel <em>Kafe ve Restoran</em></h2>
+      <div class="ornament"><span></span></div>
+      <p class="lead">Kavacık'ta eşsiz lezzetler ve keyifli anlar için sizi bekliyoruz.</p>
+    </div>
+    <div class="gallery reveal r2">
+      <figure><img src="kafe1.jpeg" alt="Kavacık Asia Hotel kafe iç mekanı" loading="lazy" decoding="async"></figure>
+      <figure><img src="kafe2.jpeg" alt="Kavacık kafe ve restoran oturma alanı" loading="lazy" decoding="async"></figure>
+      <figure><img src="kafe3.jpeg" alt="Beykoz Kavacık otel restoranı" loading="lazy" decoding="async"></figure>
+      <figure><img src="kafe4.jpeg" alt="Kavacık Asia Hotel kafe lezzetleri" loading="lazy" decoding="async"></figure>
+      <figure><img src="kafe6.jpeg" alt="Kavacık Asia Hotel kafe detayları" loading="lazy" decoding="async"></figure>
+      <figure><img src="kafe7.jpeg" alt="Kavacık otel kafe ve restoran atmosferi" loading="lazy" decoding="async"></figure>
+      <figure><img src="kafe5.jpeg" alt="Kavacık Asia Hotel kafe ambiyansı" loading="lazy" decoding="async"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-dark" id="konum">
+  <div class="wrap loc">
+    <div class="reveal">
+      <span class="eyebrow">Konum</span>
+      <h2 class="h-section">Beykoz ve Kavacık'ta Otel Arayanlar İçin <em>Merkezi Konum</em></h2>
+      <p class="lead" style="margin-top:24px">Kavacık Asia Hotel, Beykoz ilçesine bağlı Kavacık Mahallesi'nde, Ruhi Esmer Sokağı'nda yer alır. Fatih Sultan Mehmet Köprüsü ve TEM otoyolu bağlantısına birkaç dakika mesafedeki otelimiz; Avrupa ve Anadolu yakası arasında sık seyahat eden iş insanları, Kavacık'taki plaza ve şirketleri ziyaret edenler ve Boğaz'ın Anadolu kıyısını keşfetmek isteyen misafirler için ideal bir Beykoz oteli seçeneğidir.</p>
+      <ul class="loc-list">
+        <li><span class="ms">directions_car</span><div><h3>Ulaşım Kolaylığı</h3><p>FSM Köprüsü ve TEM otoyoluna birkaç dakika. Ümraniye, Ataşehir, Levent ve Maslak'a hızlı erişim.</p></div></li>
+        <li><span class="ms">business_center</span><div><h3>İş Seyahatleri</h3><p>Kavacık iş merkezleri ve plazalarına yakın; iş seyahatleriniz için pratik Kavacık oteli.</p></div></li>
+        <li><span class="ms">sailing</span><div><h3>Boğaz ve Beykoz</h3><p>Anadolu Hisarı, Kanlıca, Çubuklu ve Beykoz sahiline kısa mesafede; Boğaz kıyısında hafta sonu kaçamakları için.</p></div></li>
+      </ul>
+      <div class="addr">
+        <a href="https://www.google.com/maps?q=Kavac%C4%B1k+Asia+Hotel+Beykoz" target="_blank" rel="noopener"><span class="ms">location_on</span>Kavacık, Ruhi Esmer Sokağı No:7/2,<br>34810 Beykoz/İstanbul</a>
+        <a href="tel:+905527552090"><span class="ms">call</span>0552 755 20 90</a>
+      </div>
+    </div>
+    <div class="map reveal r2" id="contact">
+      <iframe
+        title="Kavacık Asia Hotel konumu – Ruhi Esmer Sokağı No:7/2, Kavacık, Beykoz/İstanbul"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3008.204561858022!2d29.091176276686153!3d41.06450651598418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cacae8c9a099a9%3A0xc3b02008e5c8e239!2sKavac%C4%B1k%2C%20Ruhi%20Esmer%20Sk.%20No%3A7%2F2%2C%2034810%20Beykoz%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str"
+        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-ivory" id="sss">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow center">SSS</span>
+      <h2 class="h-section">Sıkça Sorulan <em>Sorular</em></h2>
+    </div>
+    <div class="faq reveal r2">
+      <details open>
+        <summary>Kavacık Asia Hotel nerede?<i></i></summary>
+        <p>Otelimiz Kavacık Mahallesi, Ruhi Esmer Sokağı No:7/2, 34810 Beykoz/İstanbul adresindedir. Fatih Sultan Mehmet Köprüsü'ne birkaç dakika mesafededir.</p>
+      </details>
+      <details>
+        <summary>Nasıl rezervasyon yapabilirim?<i></i></summary>
+        <p>WhatsApp üzerinden 0552 755 20 90 numarasına yazarak ya da sayfadaki "Müsaitlik Sor" formunu kullanarak hızlıca rezervasyon yapabilirsiniz. Dilerseniz telefonla da arayabilirsiniz.</p>
+      </details>
+      <details>
+        <summary>Hangi oda tipleri mevcut?<i></i></summary>
+        <p>Standart Oda, ayrı yataklı Twin Oda ve aileler için geniş Aile Odası seçeneklerimiz bulunmaktadır. Odalarımızda ücretsiz WiFi bulunmaktadır.</p>
+      </details>
+      <details>
+        <summary>Resepsiyon 24 saat açık mı?<i></i></summary>
+        <p>Evet, resepsiyonumuz 7 gün 24 saat hizmet vermektedir.</p>
+      </details>
+      <details>
+        <summary>Otelde kafe veya restoran var mı?<i></i></summary>
+        <p>Evet, otelimizin bünyesinde misafirlerimize hizmet veren bir kafe ve restoran bulunmaktadır.</p>
+      </details>
+      <details>
+        <summary>Beykoz'da iş seyahati için uygun bir otel mi?<i></i></summary>
+        <p>Kavacık, Beykoz'un iş merkezidir. Otelimiz plazalara yakınlığı, FSM Köprüsü bağlantısı, çalışma masalı odaları ve ücretsiz WiFi ile iş seyahatleri için idealdir.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <img src="fsm11.jpg" alt="" loading="lazy" decoding="async">
+  <div class="wrap reveal">
+    <span class="eyebrow center">Rezervasyon</span>
+    <h2 class="h-section">Konaklamanızı <em>Bugün</em> Planlayın</h2>
+    <p>Müsaitlik ve fiyat bilgisi için bize WhatsApp'tan yazın ya da hemen arayın; ekibimiz size hızla dönüş yapsın.</p>
+    <div class="hero-actions">
+      <a class="btn btn-gold" href="https://wa.me/905527552090" target="_blank" rel="noopener">WhatsApp ile Yazın</a>
+      <a class="btn btn-ghost" href="tel:+905527552090">0552 755 20 90</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#" class="logo"><b>Kavacık <span lang="en">Asia</span></b><small>Hotel · İstanbul</small></a>
+        <p>Modern lüks ve konforun Beykoz Kavacık'taki adresi. İş ve tatil seyahatleriniz için mükemmel denge.</p>
+      </div>
+      <div>
+        <p class="foot-title">Hızlı Linkler</p>
+        <nav class="foot-links" aria-label="Alt menü">
+          <a href="#rooms">Odalar</a>
+          <a href="#cafe">Kafe & Restoran</a>
+          <a href="#konum">Konum</a>
+          <a href="#sss">Sıkça Sorulan Sorular</a>
+        </nav>
+      </div>
+      <div>
+        <p class="foot-title">Rezervasyon</p>
+        <nav class="foot-links" aria-label="Rezervasyon">
+          <a href="https://wa.me/905527552090" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="tel:+905527552090">Telefon</a>
+        </nav>
+      </div>
+      <div>
+        <p class="foot-title">İletişim</p>
+        <address>
+          <a href="https://www.google.com/maps?q=Kavac%C4%B1k+Asia+Hotel+Beykoz" target="_blank" rel="noopener"><span class="ms">location_on</span><span>Kavacık, Ruhi Esmer Sokağı No:7/2,<br>34810 Beykoz/İstanbul</span></a>
+          <a href="tel:+905527552090"><span class="ms">call</span><span>0552 755 20 90</span></a>
+        </address>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Kavacık Asia Hotel. Tüm hakları saklıdır.</span>
+      <span>Kavacık · Beykoz · İstanbul</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/905527552090" target="_blank" rel="noopener" class="wa-fab" aria-label="WhatsApp ile iletişim">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
-</div>
-<p class="text-on-surface-variant text-body-md line-clamp-2">Şehir manzaralı, geniş çalışma masası ve ultra konforlu yatak sistemi ile seyahatleriniz için tasarlandı.</p>
-<div class="flex gap-4 pt-4 border-t border-surface-variant">
-<div class="flex items-center gap-2 text-on-surface-variant">
-<span class="material-symbols-outlined text-sm">wifi</span>
-<span class="text-xs">Ücretsiz WiFi</span>
-</div>
-<div class="flex items-center gap-2 text-on-surface-variant">
-<span class="material-symbols-outlined text-sm">tv</span>
-<span class="text-xs">Akıllı TV</span>
-</div>
-</div>
-</div>
-</div>
 
-<div class="group bg-surface flex flex-col hover:shadow-2xl transition-shadow duration-500 rounded-xl overflow-hidden">
-<div class="relative overflow-hidden aspect-[3/4]">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Kavacık Asia Hotel Aile Odası – Beykoz'da aile oteli" src="aile-odasi.jpeg" loading="lazy" decoding="async">
-</div>
-<div class="p-8 space-y-4">
-<div class="flex flex-col gap-2 items-start">
-<h3 class="font-headline-md text-xl font-bold">Aile Odası</h3>
-<a href="https://wa.me/905527552090?text=Merhaba,%20Aile%20Odası%20için%20rezervasyon%20yaptırmak%20istiyorum." target="_blank" class="text-secondary font-bold text-sm bg-secondary/10 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-secondary hover:text-white transition-colors w-full justify-center">
-    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
-    WhatsApp ile Rezervasyon
-</a>
-</div>
-<p class="text-on-surface-variant text-body-md line-clamp-2">Geniş yaşam alanı ve lüks donanımlarla ailenizle birlikte konaklamanızı bir üst seviyeye taşıyın.</p>
-<div class="flex gap-4 pt-4 border-t border-surface-variant">
-<div class="flex items-center gap-2 text-on-surface-variant">
-<span class="material-symbols-outlined text-sm">king_bed</span>
-<span class="text-xs">Geniş Yataklar</span>
-</div>
-<div class="flex items-center gap-2 text-on-surface-variant">
-<span class="material-symbols-outlined text-sm">ac_unit</span>
-<span class="text-xs">Klima</span>
-</div>
-</div>
-</div>
-</div>
-
-<div class="group bg-surface flex flex-col hover:shadow-2xl transition-shadow duration-500 rounded-xl overflow-hidden">
-<div class="relative overflow-hidden aspect-[3/4]">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Kavacık Asia Hotel Twin Oda – ayrı yataklı otel odası Kavacık" src="twinoda.jpeg" loading="lazy" decoding="async">
-</div>
-<div class="p-8 space-y-4">
-<div class="flex flex-col gap-2 items-start">
-<h3 class="font-headline-md text-xl font-bold">Twin Oda</h3>
-<a href="https://wa.me/905527552090?text=Merhaba,%20Twin%20Oda%20için%20rezervasyon%20yaptırmak%20istiyorum." target="_blank" class="text-secondary font-bold text-sm bg-secondary/10 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-secondary hover:text-white transition-colors w-full justify-center">
-    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
-    WhatsApp ile Rezervasyon
-</a>
-</div>
-<p class="text-on-surface-variant text-body-md line-clamp-2">Geniş pencereleriyle gün ışığının her köşeye süzüldüğü, ferah ve konforlu ayrı yataklı yaşam alanı.</p>
-<div class="flex gap-4 pt-4 border-t border-surface-variant">
-<div class="flex items-center gap-2 text-on-surface-variant">
-<span class="material-symbols-outlined text-sm">bed</span>
-<span class="text-xs">İkiz Yatak</span>
-</div>
-<div class="flex items-center gap-2 text-on-surface-variant">
-<span class="material-symbols-outlined text-sm">room_service</span>
-<span class="text-xs">Oda Servisi</span>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-</section>
-
-<section id="cafe" class="py-section-gap px-margin-desktop max-w-container-max mx-auto reveal relative z-10">
-<div class="text-center mb-16 bg-surface/50 p-6 rounded-xl backdrop-blur-sm border border-white/20 inline-block w-full">
-<h2 class="font-headline-md text-headline-md mb-4">Kavacık Asia Hotel Kafe ve Restoran</h2>
-<p class="text-on-surface-variant text-body-lg">Kavacık'ta eşsiz lezzetler ve keyifli anlar için sizi bekliyoruz.</p>
-<div class="w-24 h-1 bg-secondary mx-auto mt-4"></div>
-</div>
-<div class="grid grid-cols-2 md:grid-cols-2 gap-4 auto-rows-[250px]">
-    <div class="relative group overflow-hidden bg-surface-container rounded-lg shadow-lg">
-        <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="kafe1.jpeg" alt="Kavacık Asia Hotel kafe iç mekanı" loading="lazy" decoding="async">
-    </div>
-    <div class="relative group overflow-hidden bg-surface-container rounded-lg shadow-lg">
-        <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="kafe2.jpeg" alt="Kavacık kafe ve restoran oturma alanı" loading="lazy" decoding="async">
-    </div>
-    <div class="relative group overflow-hidden bg-surface-container rounded-lg shadow-lg">
-        <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="kafe3.jpeg" alt="Beykoz Kavacık otel restoranı" loading="lazy" decoding="async">
-    </div>
-    <div class="relative group overflow-hidden bg-surface-container rounded-lg shadow-lg">
-        <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="kafe4.jpeg" alt="Kavacık Asia Hotel kafe lezzetleri" loading="lazy" decoding="async">
-    </div>
-</div>
-</section>
-
-<section id="konum" class="bg-surface-container-low/80 py-section-gap backdrop-blur-md relative z-10 border-y border-outline-variant/20">
-<div class="px-margin-desktop max-w-container-max mx-auto reveal">
-<div class="max-w-3xl mb-12">
-<p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-4">Konum</p>
-<h2 class="font-headline-md text-headline-md mb-6">Beykoz ve Kavacık'ta Otel Arayanlar İçin Merkezi Konum</h2>
-<p class="text-on-surface-variant text-body-lg leading-relaxed">
-    Kavacık Asia Hotel, Beykoz ilçesine bağlı Kavacık Mahallesi'nde, Ruhi Esmer Sokağı'nda yer alır. Fatih Sultan Mehmet Köprüsü ve TEM otoyolu bağlantısına birkaç dakika mesafedeki otelimiz; Avrupa ve Anadolu yakası arasında sık seyahat eden iş insanları, Kavacık'taki plaza ve şirketleri ziyaret edenler ve Boğaz'ın Anadolu kıyısını keşfetmek isteyen misafirler için ideal bir Beykoz oteli seçeneğidir.
-</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-<div class="bg-surface p-8 rounded-xl space-y-3">
-<span class="material-symbols-outlined text-secondary text-3xl">directions_car</span>
-<h3 class="font-bold text-lg">Ulaşım Kolaylığı</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed">FSM Köprüsü ve TEM otoyoluna birkaç dakika. Ümraniye, Ataşehir, Levent ve Maslak'a hızlı erişim.</p>
-</div>
-<div class="bg-surface p-8 rounded-xl space-y-3">
-<span class="material-symbols-outlined text-secondary text-3xl">business_center</span>
-<h3 class="font-bold text-lg">İş Seyahatleri</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed">Kavacık iş merkezleri ve plazalarına yakın; iş seyahatleriniz için pratik Kavacık oteli.</p>
-</div>
-<div class="bg-surface p-8 rounded-xl space-y-3">
-<span class="material-symbols-outlined text-secondary text-3xl">sailing</span>
-<h3 class="font-bold text-lg">Boğaz ve Beykoz</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed">Anadolu Hisarı, Kanlıca, Çubuklu ve Beykoz sahiline kısa mesafede; Boğaz kıyısında hafta sonu kaçamakları için.</p>
-</div>
-</div>
-</div>
-</section>
-
-<section id="sss" class="py-section-gap px-margin-desktop max-w-container-max mx-auto reveal relative z-10">
-<div class="max-w-3xl mx-auto">
-<div class="text-center mb-12">
-<p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-4">SSS</p>
-<h2 class="font-headline-md text-headline-md">Sıkça Sorulan Sorular</h2>
-</div>
-<div class="space-y-4">
-<details class="group bg-surface p-6 rounded-xl border border-outline-variant/30" open>
-<summary class="font-bold cursor-pointer list-none flex justify-between items-center">Kavacık Asia Hotel nerede?<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span></summary>
-<p class="text-on-surface-variant mt-4 leading-relaxed">Otelimiz Kavacık Mahallesi, Ruhi Esmer Sokağı No:7/2, 34810 Beykoz/İstanbul adresindedir. Fatih Sultan Mehmet Köprüsü'ne birkaç dakika mesafededir.</p>
-</details>
-<details class="group bg-surface p-6 rounded-xl border border-outline-variant/30">
-<summary class="font-bold cursor-pointer list-none flex justify-between items-center">Nasıl rezervasyon yapabilirim?<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span></summary>
-<p class="text-on-surface-variant mt-4 leading-relaxed">WhatsApp üzerinden 0552 755 20 90 numarasına yazarak ya da sayfadaki "Müsaitlik Sor" formunu kullanarak hızlıca rezervasyon yapabilirsiniz. Dilerseniz telefonla da arayabilirsiniz.</p>
-</details>
-<details class="group bg-surface p-6 rounded-xl border border-outline-variant/30">
-<summary class="font-bold cursor-pointer list-none flex justify-between items-center">Hangi oda tipleri mevcut?<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span></summary>
-<p class="text-on-surface-variant mt-4 leading-relaxed">Standart Oda, ayrı yataklı Twin Oda ve aileler için geniş Aile Odası seçeneklerimiz bulunmaktadır. Odalarımızda ücretsiz WiFi bulunmaktadır.</p>
-</details>
-<details class="group bg-surface p-6 rounded-xl border border-outline-variant/30">
-<summary class="font-bold cursor-pointer list-none flex justify-between items-center">Resepsiyon 24 saat açık mı?<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span></summary>
-<p class="text-on-surface-variant mt-4 leading-relaxed">Evet, resepsiyonumuz 7 gün 24 saat hizmet vermektedir.</p>
-</details>
-<details class="group bg-surface p-6 rounded-xl border border-outline-variant/30">
-<summary class="font-bold cursor-pointer list-none flex justify-between items-center">Otelde kafe veya restoran var mı?<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span></summary>
-<p class="text-on-surface-variant mt-4 leading-relaxed">Evet, otelimizin bünyesinde misafirlerimize hizmet veren bir kafe ve restoran bulunmaktadır.</p>
-</details>
-<details class="group bg-surface p-6 rounded-xl border border-outline-variant/30">
-<summary class="font-bold cursor-pointer list-none flex justify-between items-center">Beykoz'da iş seyahati için uygun bir otel mi?<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span></summary>
-<p class="text-on-surface-variant mt-4 leading-relaxed">Kavacık, Beykoz'un iş merkezidir. Otelimiz plazalara yakınlığı, FSM Köprüsü bağlantısı, çalışma masalı odaları ve ücretsiz WiFi ile iş seyahatleri için idealdir.</p>
-</details>
-</div>
-</div>
-</section>
+<nav class="mbar" aria-label="Hızlı iletişim">
+  <a href="tel:+905527552090"><span class="ms">call</span>Ara</a>
+  <a href="https://wa.me/905527552090" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Rezervasyon</a>
+</nav>
 
 <script type="application/ld+json">
 {
@@ -536,153 +733,48 @@
 }
 </script>
 
-<section id="contact" class="w-full bg-surface-container-low reveal relative z-10 border-t border-outline-variant/20">
-    <div class="w-full h-[450px] relative">
-        <iframe 
-            title="Kavacık Asia Hotel konumu – Ruhi Esmer Sokağı No:7/2, Kavacık, Beykoz/İstanbul"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3008.204561858022!2d29.091176276686153!3d41.06450651598418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cacae8c9a099a9%3A0xc3b02008e5c8e239!2sKavac%C4%B1k%2C%20Ruhi%20Esmer%20Sk.%20No%3A7%2F2%2C%2034810%20Beykoz%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" 
-            width="100%" 
-            height="100%" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-    </div>
-</section>
-
-<footer class="bg-tertiary-container text-on-tertiary w-full py-section-gap px-margin-desktop flex flex-col md:flex-row justify-between gap-gutter max-w-container-max mx-auto relative z-10 border-t border-outline-variant/20">
-<div class="space-y-6 md:max-w-xs">
-<p class="font-headline-md text-headline-md text-on-tertiary">Kavacık Asia Hotel</p>
-<p class="text-on-tertiary/70 font-body-md text-body-md">
-                Modern lüks ve konforun Beykoz Kavacık'taki adresi. İş ve tatil seyahatleriniz için mükemmel denge.
-            </p>
-<address class="not-italic mt-4 space-y-4 text-on-tertiary/70 text-sm">
-    <p class="flex items-start gap-2">
-        <span class="material-symbols-outlined text-secondary-fixed text-lg">location_on</span>
-        <a href="https://www.google.com/search?sca_esv=d2d78c0a3b82345e&q=kavac%C4%B1k+asia+hotel+adres" target="_blank" class="hover:text-secondary-fixed transition-colors">Kavacık, Ruhi Esmer Sokağı No:7/2,<br>34810 Beykoz/İstanbul</a>
-    </p>
-    <p class="flex items-center gap-2">
-        <span class="material-symbols-outlined text-secondary-fixed text-lg">call</span>
-        <a href="tel:05527552090" class="hover:text-secondary-fixed transition-colors font-bold text-base">0552 755 20 90</a>
-    </p>
-</address>
-</div>
-<div class="grid grid-cols-2 md:grid-cols-3 gap-12">
-<div class="space-y-4">
-<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-tertiary/40">Hızlı Linkler</p>
-<nav class="flex flex-col gap-2">
-<a class="text-on-tertiary/70 hover:text-secondary-fixed transition-colors" href="#rooms">Odalar</a>
-<a class="text-on-tertiary/70 hover:text-secondary-fixed transition-colors" href="#cafe">Kafe & Restoran</a>
-<a class="text-on-tertiary/70 hover:text-secondary-fixed transition-colors" href="#konum">Konum</a>
-<a class="text-on-tertiary/70 hover:text-secondary-fixed transition-colors" href="#sss">Sıkça Sorulan Sorular</a>
-<a class="text-on-tertiary/70 hover:text-secondary-fixed transition-colors" href="https://wa.me/905527552090" target="_blank">İletişim</a>
-</nav>
-</div>
-<div class="space-y-4">
-<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-tertiary/40">Destek</p>
-<nav class="flex flex-col gap-2">
-<a class="text-on-tertiary/70 hover:text-secondary-fixed transition-colors" href="#">Gizlilik Politikası</a>
-<a class="text-on-tertiary/70 hover:text-secondary-fixed transition-colors" href="#">Kullanım Şartları</a>
-</nav>
-</div>
-</div>
-<div class="md:hidden pt-8 border-t border-on-tertiary/10 text-center text-xs text-on-tertiary/40">
-            © 2026 Kavacık Asia Hotel. Tüm hakları saklıdır.
-        </div>
-</footer>
-
-<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface/95 backdrop-blur-md flex justify-around py-4 border-t border-outline-variant/10 z-40">
-<a class="flex flex-col items-center gap-1 text-primary" href="#">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
-<span class="text-[10px] font-bold uppercase">Ana Sayfa</span>
-</a>
-<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#rooms">
-<span class="material-symbols-outlined">bed</span>
-<span class="text-[10px] font-bold uppercase">Odalar</span>
-</a>
-<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#cafe">
-<span class="material-symbols-outlined">restaurant</span>
-<span class="text-[10px] font-bold uppercase">Kafe</span>
-</a>
-<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#contact">
-<span class="material-symbols-outlined">map</span>
-<span class="text-[10px] font-bold uppercase">Konum</span>
-</a>
-</nav>
-
 <script>
-        // Mavi Yuvarlaklar (Animasyon)
-        function createSnowball() {
-            const snowball = document.createElement('div');
-            snowball.classList.add('snowball');
-            
-            const size = Math.random() * 8 + 4; 
-            snowball.style.width = `${size}px`;
-            snowball.style.height = `${size}px`;
-            snowball.style.left = `${Math.random() * 100}vw`;
-            snowball.style.animationDuration = `${Math.random() * 3 + 2}s`;
-            
-            document.body.appendChild(snowball);
-            
-            setTimeout(() => {
-                snowball.remove();
-            }, 5000);
-        }
+  // Header
+  var header = document.getElementById('header');
+  function onScroll(){ header.classList.toggle('scrolled', window.scrollY > 60); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
 
-        // WhatsApp Müsaitlik Sor İşlevi
-        function checkAvailability() {
-            const checkin = document.getElementById('checkin_date').value;
-            const checkout = document.getElementById('checkout_date').value;
-            const roomType = document.getElementById('room_type').value;
-            const guestCount = document.getElementById('guest_count').value;
+  // Mobil menü
+  var burger = document.getElementById('burger'), menu = document.getElementById('mobile-menu');
+  function setMenu(open){
+    document.body.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', open);
+    menu.setAttribute('aria-hidden', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  burger.addEventListener('click', function(){ setMenu(!document.body.classList.contains('menu-open')); });
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
 
-            if (!checkin || !checkout) {
-                alert("Lütfen giriş ve çıkış tarihlerini seçiniz.");
-                return;
-            }
+  // Tarih alanları: bugünden önce seçilemesin
+  var today = new Date().toISOString().split('T')[0];
+  var cin = document.getElementById('checkin_date'), cout = document.getElementById('checkout_date');
+  cin.min = today; cout.min = today;
+  cin.addEventListener('change', function(){ cout.min = cin.value || today; if (cout.value && cout.value <= cin.value) cout.value = ''; });
 
-            const formattedCheckin = checkin.split('-').reverse().join('.');
-            const formattedCheckout = checkout.split('-').reverse().join('.');
+  // WhatsApp Müsaitlik Sor
+  function checkAvailability() {
+    var checkin = cin.value, checkout = cout.value;
+    var roomType = document.getElementById('room_type').value;
+    var guestCount = document.getElementById('guest_count').value;
+    if (!checkin || !checkout) { alert("Lütfen giriş ve çıkış tarihlerini seçiniz."); return; }
+    var f = function(d){ return d.split('-').reverse().join('.'); };
+    var message = "Merhaba, Kavacık Asia Hotel müsaitlik durumu sormak istiyorum.\n\n*Giriş Tarihi:* " + f(checkin) + "\n*Çıkış Tarihi:* " + f(checkout) + "\n*Oda Tipi:* " + roomType + "\n*Kişi Sayısı:* " + guestCount;
+    window.open("https://wa.me/905527552090?text=" + encodeURIComponent(message), "_blank");
+  }
 
-            const message = `Merhaba, Kavacık Asia Hotel müsaitlik durumu sormak istiyorum.%0A%0A*Giriş Tarihi:* ${formattedCheckin}%0A*Çıkış Tarihi:* ${formattedCheckout}%0A*Oda Tipi:* ${roomType}%0A*Kişi Sayısı:* ${guestCount}`;
-            const whatsappUrl = `https://wa.me/905527552090?text=${message}`;
-
-            window.open(whatsappUrl, '_blank');
-        }
-
-        // Text Scroll Animasyonları
-        const reveals = document.querySelectorAll('.reveal');
-        
-        function reveal() {
-            for (let i = 0; i < reveals.length; i++) {
-                const windowHeight = window.innerHeight;
-                const elementTop = reveals[i].getBoundingClientRect().top;
-                const elementVisible = 100;
-                
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add('active');
-                }
-            }
-        }
-
-        window.addEventListener('scroll', reveal);
-        window.addEventListener('load', () => {
-            reveal(); 
-            setInterval(createSnowball, 300);
-        });
-
-        // Header Şeffaflık Kontrolü
-        const header = document.getElementById('main-nav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('py-3', 'shadow-md');
-                header.classList.remove('py-4', 'shadow-sm');
-            } else {
-                header.classList.add('py-4', 'shadow-sm');
-                header.classList.remove('py-3', 'shadow-md');
-            }
-        });
-    </script>
+  // Scroll animasyonları
+  var els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:.12, rootMargin:'0px 0px -60px 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  } else { els.forEach(function(el){ el.classList.add('in'); }); }
+</script>
 </body>
 </html>
