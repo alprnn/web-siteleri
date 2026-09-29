@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xn--kavackasiahotel-clc.com/sitemap.xml
